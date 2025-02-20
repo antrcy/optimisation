@@ -4,7 +4,7 @@
 
 C'est-à-dire d'une borne inférieure atteinte.
 
-_Théorème_ : (Weierstrass) Soit $J : K \subset V \to \mathbb R $, avec $K$ et $V$ de Hilbert. Alors $J$ admet un minimum sur $K$.
+_Théorème_ : (Weierstrass) Soit $J : K \subset V \to \mathbb{R}$, avec $K$ et $V$ de Hilbert. Alors $J$ admet un minimum sur $K$.
 
 
 _Définition_ : Une fonction $f$ est dite sous-continue inférieure ($\text{s.c.i}$) en $x_0 \in K$ si :
@@ -19,7 +19,7 @@ _Proposition_ : $f$ est $\text{s.c.i}$ $\iff$ les sous ensembles de niveaux de $
 
 Maintenant la notion introduite on peut maintenant étendre le résultat attribué à Weierstrass :
 
-_Théorème_ : (Weiestrass bis) Soit $J : K \subset V \to \mathbb R $ $\text{s.c.i}$ sur $K$ un compact. Alors $J$ admet un minimum sur $K$. 
+_Théorème_ : (Weiestrass bis) Soit $J : K \subset V \to \mathbb{R}$ $\text{s.c.i}$ sur $K$ un compact. Alors $J$ admet un minimum sur $K$. 
 
 On sent bien que la démonstration utilisera probablement la caractérisation séquentielle d'un fermé.
 
@@ -29,13 +29,13 @@ ___
 
 On suppose désormais que $V$ n'est plus de Hilbert, mais euclidien.
 
-_Définition_ : Soit $J : K \subset V \to \mathbb R $ est dite coercie si, pour $K$ fermé et $\forall (x_n)_{n \in \mathbb N} \subset K$ :
+_Définition_ : Soit $J : K \subset V \to \mathbb{R}$ est dite coercie si, pour $K$ fermé et $\forall (x_n)_{n \in \mathbb N} \subset K$ :
 
 $$
 \|x_n\| \to +\infty \implies J(x_n) \to +\infty
 $$
 
-_Théorème_ : Soit $J : K \subset V \to \mathbb R $ continue et coercie, alors $J$ admet un minimum sur $K$ fermé.
+_Théorème_ : Soit $J : K \subset V \to \mathbb{R}$ continue et coercie, alors $J$ admet un minimum sur $K$ fermé.
 
 _Propriété_ : Soit $K \subset V$ un convexe et fermé, avec $J$ continue sur $K$. Si $J$ est $\alpha$-convexe, alors $J$ est coercive.
 
@@ -74,7 +74,7 @@ _Propriété_ : Si $x_n \to x$ pour la topologie forte, alors $x_n \to x$ pour l
 
 _Théorème_ : (Compacité séquentielle) Si $(x_n)$ est une suite bornée de $V$ de Hilbert, on peut en extraire une sous suite convergente au sens faible.
 
-_Théorème_ : Soit $J : K \subset V \to \mathbb R $ une fonction $\text{s.c.i}$ convexe sur $K$ un convexe fermé. Si $K$ est borné, ou si $J$ est coercive, alors $J$ admet un minimum sur $K$.
+_Théorème_ : Soit $J : K \subset V \to \mathbb{R}$ une fonction $\text{s.c.i}$ convexe sur $K$ un convexe fermé. Si $K$ est borné, ou si $J$ est coercive, alors $J$ admet un minimum sur $K$.
 
 Ce résultat se démontre comme suit : on détermine une suite minimisante nécessairement bornée, soit car $K$ est borné, soit car $J$ est coercive. On utilise le résultat précédent pour extraire une sous suite convergente pour la topologie faible. Etant donnée que $K$ est convexe fermé, c'est un fermé pour la topologie faible. De plus, $J$ est convexe $\text{s.c.i}$ pour la topologie faible, elle est donc $\text{s.c.i}$ pour la topologie faible. On a donc :
 
