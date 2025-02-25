@@ -110,4 +110,4 @@ _Propriétés_ : Soit $J:K\in V \to \mathbb R$;
 
 1) Si $J$ est convexe, tout minimum local est minimum global. De plus, l'ensemble des minimiseurs forme un ensemble convexe.
 
-2) Si $J$ est strictement convexe, et que $K$ est convexe, alors il y a au plus un minimiseur, c'est-à-dire réduit un singleton potentiellement vide.
+2) Si $J$ est strictement convexe, et que $K$ est convexe, alors il y a au plus un minimiseur, c'est-à-dire réduit à un singleton potentiellement vide.
