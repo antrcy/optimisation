@@ -10,26 +10,44 @@ _Théorème_ : (Weierstrass) Soit $J : K \subset V \to \mathbb{R}$ **continue**,
 _Définition_ : Une fonction $f$ est dite sous-continue inférieure ($\text{s.c.i}$) en $x_0 \in K$ si :
 
 $$
-\text{lim}_{x \to x_0} \text{ inf}\{f(x)\} \geq f(x_0)
+\lim_{x \to x_0} \text{ inf}\{f(x)\} \geq f(x_0)
 $$
+
+On rappelle par ailleurs que :
+
+$$
+\lim_{n \to \infty} \inf u_n = \lim_{n \to \infty} \inf_{k \geq n} u_k
+$$
+
+Converge toujours dans $\overline{\mathbb{R}}$ la droite réelle achevée.
 
 Un exemple classique d'une fonction $\text{s.c.i}$ est la marche.
 
 _Proposition_ : $f$ est $\text{s.c.i}$ $\iff$ les sous ensembles de niveaux de $f$ sont fermés.
 
-Maintenant la notion introduite on peut maintenant étendre le résultat attribué à Weierstrass :
+Cette proposition est démontrée en exercice.
 
 _Théorème_ : (Weiestrass bis) Soit $J : K \subset V \to \mathbb{R}$ **$\text{s.c.i}$** sur **$K$ un compact**. Alors $J$ admet un minimum sur $K$. 
 
-On sent bien que la démonstration utilisera probablement la caractérisation séquentielle d'un fermé.
-
-Ces résultats fonctionnement aussi bien sur un espace de Hilbert que des espaces à dimension finie.
+La démonstration utilise la définition séquentielle des compacts. Ces résultats fonctionnement aussi bien sur un espace de Hilbert que des espaces à dimension finie (euclidiens pour simplifier).
 
 ___
 
 **Résultats supplémentaires en dimension finie**
 
 On suppose désormais que $V$ n'est plus de Hilbert, mais euclidien.
+
+On s'intéresse au problème de minimisation suivant : 
+
+Soit $f : K \subset \mathbb{R}^n \to \mathbb{R}$, continue.
+
+$$
+\text{inf}_{x\in K}f(x)
+$$
+
+_Théorème_ : On suppose qu'il existe $x_0$ dans $K$ tel que $\{f \leq f(x_0)\}$ soit borné. Alors, le problème $\text{inf}_{x\in K} f(x)$ admet au moins une solution.
+
+Pour démontrer ce théorème, il faut commencer par déterminer l'existence d'une suite minimisante de $f$ dans $\{f(x) \leq f(x_0)\}$, qui est fermé par continuité de $f$ et borné par hypothèse donc compact en dimension finie par la propriété de Bolzano Weierstrass. On extrait alors une sous suite convergente et le tour est joué.
 
 _Définition_ : Soit $J : K \subset V = \mathbb R^n \to \mathbb{R}$ est dite coercive si, pour $K$ fermé et $\forall (x_n)_{n \in \mathbb N} \subset K$ :
 
@@ -39,11 +57,10 @@ $$
 
 _Théorème_ : Soit $J : K \subset V \to \mathbb{R}$ **continue** et **coercive**, alors $J$ admet un minimum sur **$K$ fermé**.
 
+Ici c'est la suite minimisante qui est nécessairement bornée, et qui admet donc une sous suite convergente dans $K$ fermé.
+
+
 _Propriété_ : Soit $K \subset V$ un convexe et fermé, avec $J$ continue sur $K$. Si $J$ est $\alpha$-convexe, alors $J$ est coercive.
-
-Un théorème plus général nous indique que :
-
-_Théorème_ : On suppose qu'il existe $x_0$ dans $\mathbb R ^n$ tel que $\{f \leq f(x_0)\}$ soit borné. Alors, le problème $inf_{x\in K} f(x)$ admet au moins une solution.
 
 **ATTENTION** La mention de la dimension finie est CRITIQUE ici. Il est tout à fait possible de déterminer une fonction sans minimiseur continue et coercive sur un fermé.
 ___
@@ -97,7 +114,7 @@ $$
 
 Or puisque $\text{lim} J(x_{n_k}) = \text{inf}_KJ$, on en déduit que $J(x^*) = \text{inf}_KJ$
 
-Ici on avait besoin que $J$ soit $\text{s.c.i}$ pour la topologie faible, car on avait une suite qui convergeait faiblement.
+Remarquons qu'en dimension finie, la convexité de $K$ et de $f$ auraient été inutiles. Ce sont néanmoins des ingrédients essentiels à la topologie faible.
 
 $\square$
 
@@ -108,6 +125,6 @@ C'est un des résultats les plus importants concernant l'optimisation en dimensi
 
 _Propriétés_ : Soit $J:K\in V \to \mathbb R$;
 
-1) Si $J$ est convexe, tout minimum local est minimum global. De plus, l'ensemble des minimiseurs forme un ensemble convexe.
+1) Si $J$ est convexe, tout minimum local est minimum global. De plus, les minimiseurs forment un ensemble convexe.
 
 2) Si $J$ est strictement convexe, et que $K$ est convexe, alors il y a au plus un minimiseur, c'est-à-dire réduit à un singleton potentiellement vide.
