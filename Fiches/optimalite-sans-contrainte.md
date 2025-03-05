@@ -22,7 +22,7 @@ On appelle l'équation l'inégalité d'Euler. C'est un résultat extrêmement pu
 
 La démonstration de ce résultat repose essentiellement sur le fait que $K$ est convexe. On choisit alors un voisinage de $\bar x$ dans $K$, par exemple une boule telle qu'intersectée avec $K$ donne un voisinage sur lequel $\bar x$ est minimiseur local.
 
-L'équation d'Euler est seulement nécessaire en général. En revanche, elle est suffisante pour $f$ en plus convexe. En effet, par convexité, $f(y) \leq f(\bar x) + D_{\bar x}f(y-\bar x)$, et ce pour tout $y$ de $K$.
+L'équation d'Euler est seulement nécessaire en général. En revanche, elle est suffisante pour $f$ en plus convexe. En effet, par convexité, $f(y) \geq f(\bar x) + D_{\bar x}f(y-\bar x)$, et ce pour tout $y$ de $K$.
 
 _Proposition_ : (Minimisation sur un ouvert) Soit $f:K \subset V \to \mathbb R$. Si $f$ admet un minimum local en $\bar x \in \mathring K$, alors $D_{\bar x} f = 0$.
 

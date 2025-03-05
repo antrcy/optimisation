@@ -1,12 +1,11 @@
 ## Infimum et suite minimisante
 
-Problème classique d'optimisation :
-
+La formulation classique d'un problème d'optimisation :
 $$
 \text{Inf}_{x \in K} J(x)
 $$
 
-Avec $J$ scalaire. A toujours une solution. De plus, il existe toujours une suite $(x_n)_n$ dite minimisante telle que :
+Avec $J$ scalaire, et $K \subset V$. Ce problème à toujours une solution. De plus, il existe toujours une suite $(x_n)_n$ dite minimisante telle que :
 
 $$
 J(x_n) = y_n \rightarrow \text{Inf}_{x \in K} J(x)
@@ -20,6 +19,12 @@ _Definition_ : Soit $f : U \subset E \rightarrow F$ une fonction scalaire. On di
 
 $$
 \exists L \in \mathcal{L}(E, F) \text{ tel que } \lim_{h \rightarrow 0} \frac{f(x+h) - f(x) - L(h)}{\|h\|} = 0
+$$
+
+On écrit aussi que :
+
+$$
+|f(x + h) - f(x) - L(h)| = o(\|h\|)
 $$
 
 L'application qui à $x$ associe $L$ la différentielle de $f$ en $x$ est notée $\text{df}$ telle que :
@@ -64,7 +69,7 @@ $$
 
 ___
 
-**Formule de Taylor-Young généralisée**: Si $f$ est deux fois différentiable, alors :
+**Formule de Taylor-Young généralisée** : Si $f$ est deux fois différentiable, alors :
 $$
 f(x+h) = f(x) + D_xf(h) + \frac{1}{2} D^2 _x f(h)(h) + o(||h||^2)
 $$
@@ -104,7 +109,7 @@ $$
 f(x+h) = f(x) + \langle \nabla f(x),h \rangle + o(||h||)
 $$
 
-_Notation_ : On note $\mathcal{L}(V, \mathbb{R}) = V'$ le dual topologique de $V$, c'est-à-dire l'ensemble des formes linéaires sur $V$.
+_Notation_ : On note $\mathcal{L}(V, \mathbb{R}) = V'$ le dual topologique de $V$, c'est-à-dire l'ensemble des formes linéaires **continues** sur $V$.
 
 ### Détour par la dimension finie 
 
@@ -119,14 +124,13 @@ la dérivée partielle de $f$ par rapport à la variable $x_i$. Si ces dérivée
 $$
 \nabla f(x) = \left( \frac{\partial f}{\partial x_1}(x), \ldots, \frac{\partial f}{\partial x_n}(x) \right)
 $$
-On peut alors montrer que :
+On peut alors montrer que, si $f$ est différentiable, alors :
 $$
-Df(x) \cdot v = \nabla f(x) \cdot v
+Df(x)(v) = \langle \nabla f(x) \cdot v \rangle
 $$
 pour tout vecteur $v$.
 
-De plus, on a que $f$ est $\mathcal{C}^k$ si et seulement si toutes ses dérivées partielles sont $\mathcal{C}^k$.
-
+De plus, on a que $f$ est $\mathcal{C}^k$ si et seulement si toutes ses dérivées partielles sont $\mathcal{C}^{k-1}$.
 
 ### Formulaire :
 
@@ -151,4 +155,10 @@ $$
 f(a+h) = f(a) + D_{a+\theta h} f(h)
 $$
 
-Cette dernière propriété rappelle le TAF.
+Cette dernière propriété rappelle le TAF :
+
+Pour $[a,b]$ un segment réel et $f$ dérivable sur $(a,b)$, il existe $c \in (a,b)$ tel que 
+
+$$
+\frac{f(b) - f(a)}{b - a} = f'(c)
+$$
