@@ -92,7 +92,7 @@ _Propositions_ :
 
 Le premier point se démontre en utilisant une variante géométrique du théorème de Hahn-Banach. Le deuxième point se démontre en utilisant la caractérisation par les sous-ensembles de niveaux de $J$ des fonctions $\text{s.c.i}$.
 
-_Ex_ : L'application norme associée au produit scalaire sur $V$ est continue et convexe donc $\text{s.c.i}$ pour la topologie forte. Elle est donc $\text{s.c.i}$ pour la topologie faible. Cepedant, elle n'est pas continue pour la topologie faible. Un exemple classique est la fonction $\exp({2in\pi})$ qui converge vers $0$ pour la topologie faible mais donc la norme est constante évaluée à $1$.
+_Ex_ : L'application norme associée au produit scalaire sur $V$ est continue et convexe donc $\text{s.c.i}$ pour la topologie forte. Elle est donc $\text{s.c.i}$ pour la topologie faible. Cepedant, elle n'est pas continue pour la topologie faible. Un exemple classique est la fonction $\exp(2in\pi \frac{t}{T})$ qui converge vers $0$ pour la topologie faible mais dont la norme est constante évaluée à $1$.
 
 _Propriété_ : Si $x_n \to x$ pour la topologie forte, alors $x_n \to x$ pour la topologie faible.
 

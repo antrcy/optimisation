@@ -28,10 +28,10 @@ _Proposition_ : (Minimisation sur un ouvert) Soit $f:K \subset V \to \mathbb R$.
 
 La démonstration est un petit peu astucieuse, mais finalement intuitive. Le fait d'avoir une boule nous permet de prendre un vecteur et son opposé, et donc d'obtenir une différentielle positive pour un vecteur et son opposé.
 
-Cette condition est nécessaire en général. Cependant, en passant à la dimension finie et en imposant $f$ convexe, on a l'équivalence suivante :
+Cette condition est nécessaire en général. Cependant, en imposant $f$ convexe, on a l'équivalence suivante :
 
 $$
-\bar x \text{ est un minimum local de } f \iff \nabla _{\bar x} f = 0
+\bar x \text{ est un minimum local de } f \iff D_{\bar x} f = 0
 $$
 
 Par convexité, $\bar x$ est en plus un minimum global.
@@ -62,3 +62,119 @@ La condition sur la Hessienne est équivalente à dire qu'elle est définie posi
 3) Si $f$ est deux fois différentiable sur un voisinage de $\bar x$, que sa Hessienne est semi-définie positive sur ce voisinage, et que $\nabla _{\bar x} f = 0$, alors $\bar x$ est minimum local.
 
 Le point 2 se démontre facilement. Pour le point 3, il suffit de remarquer qu'un voisinage comprend un voisinage convexe, et d'utiliser la caractérisation $\mathcal C^2$ des fonctions convexes.
+
+
+### Applications et exemples
+
+**Le cas des fonctions quadratiques**
+
+On se souvient d'une équivalence utile sur les fonctions quadratiques en dimension finie :
+
+Pour $f(x) = \frac{1}{2} \langle Ax , x \rangle - \langle b , x \rangle + c$ avec $A \in S_n(\mathbb{R})$ et $b \in \mathbb{R}^n$, on a :
+$$
+f \text{ est strictement convexe} \iff A \text{ est définie positive}
+$$
+
+On a en effet :
+
+$\nabla _x f = Ax - b$
+
+$\nabla _x^2 f = A$
+
+_Cas 1 - $A$ est définie positive_ :
+
+$A$ est définie positive donc $f$ est strictement convexe. En particulier, si $\bar x$ est un minimum local, c'est un minimum global unique. De plus, puisque $f$ est convexe, $\bar x$ est un minimum local $\iff$ $\nabla _{\bar x}f = 0$. Donc le minimum est unique solution du système $Ax = b$. 
+
+_Cas 2 - $A$ est semi-définie positive_ :
+
+$f$ est convexe, car sa Hessienne est semi-définie positive (on a d'ailleurs la réciproque). Ainsi, $\bar x$ est minimum $\iff$ $\nabla_{\bar x}f = 0$. Ici cependant, l'existence et l'unicité de la solution du système $Ax = b$ ne peut pas être établie. Si $b \in \text{Im}(A)$, alors le système admet une solution $x_0$. Or puisque $\text{Ker}(A) \neq \empty$, il existe $v \neq 0$ tel que $Av = 0$, donc $\forall \lambda \in \mathbb{R}$, $x_0 + \lambda v$ est une solution. La fonction est donc minimisée sur un espace affine, donc convexe, elle est donc constante sur cet espace. Enfin, si $b \notin \text{Im}(A)$, l'équation d'Euler n'admet aucune solution. On rappelle que $\text{Im}(A) = \text{Ker}(A^t)^{\perp}$. Soit $v \neq 0$ tel que $Av = 0$. Alors, $v$ ne peut pas être orthogonal à $b$, puisque cela signifierait que $b \in \text{Im}(A)$. Ainsi, quitte à prendre un vecteur colinéaire à $v$, on a : 
+
+$$
+f(v) = -\langle b, v \rangle + c < 0
+$$
+
+On a alors :
+
+$$
+\lim_{n \to \infty} f(v n) = -\infty
+$$
+
+_Cas 3 - A est négative_ :
+
+Cela signifie que $A$ admet une valeur propre négative $\lambda_1$. On note $e_1$ le vecteur propre associé. On obtient alors :
+
+$$
+f(e_1) = \lambda_1 \|e_1\|^2 - \langle b, e_1 \rangle + c
+$$
+
+De la même manière :
+
+$$
+\lim_{n \to \infty} f(e_1n) = - \infty
+$$
+
+**Minimisation d'une fonctionnelle**
+
+On rappelle le théorème de Lax-Milgram. Soit $a : V \times V \to \mathbb R$ bilinéaire, continue et coercive, avec $H$ de Hilbert. Soit également $l : V \to \mathbb{R}$ une forme linéaire continue. Soit $f$ telle que :
+
+$$
+f(u) = \frac{1}{2} a(u, u) - l(u)
+$$
+
+Alors la fonctionnelle $f$ admet un unique minimum $u$, solution de : 
+
+$$
+a(u, v) = l(v), \forall v \in V
+$$
+
+$a$ étant une forme bilinéaire coercive, elle est $\alpha$-convexe donc convexe. $f$ est également $\text{s.c.i}$ sur $V$ un fermé convexe. Alors, elle admet un minimum, et ce dernier est unique. $f$ étant convexe, ses minimums locaux sont caractérisés par l'équation d'Euler, c'est-à-dire que $\bar u$ est minimum local de $u \iff D_{\bar u}f = 0 \iff a(\bar u, h) = l(h), \forall h \in V$.
+
+Mettons en pratique sur un exemple :
+
+$$
+f(u) = \frac{1}{2} \int_0^1u'(x)^2dx - \int_0^1f(x)u(x)dx
+$$
+
+avec $f \in L^2(0, 1)$ et $u \in H^1_0(0,1)$.
+
+On identifie :
+
+$a(u, v) = \int_0^1u'(x)v'(x)dx$
+
+$l(v) = \int_0^1f(x)v(x)dx$
+
+$l$ est continue :
+
+$$
+|l(v)| \leq \|f\|_{L^2}\|v\|_{L^2} \leq  \|f\|_{L^2} \|v\|_{H^1_0}
+$$
+
+$a$ est continue :
+
+$$
+|a(u,v)| = |\int_0^1 u'(x) v'(x) dx| \leq \|u'\|_{L^2} \|v'\|_{L^2} \leq \|u'\|_{H^1_0}\|v'\|_{H^1_0}
+$$
+
+$a$ est linéaire, et coercive :
+
+$$
+\|u\|_{L^1} \leq C \|u'\|_{L^2} = C |a(u,u)|
+$$
+
+par l'inégalité de Poincaré sur toutes les fonctions $u \in H^1_0(0,1)$.
+
+On peut alors affirmer qu'il existe une unique solution $u\in H^1_0(0,1)$ au problème dit variationnel suivant :
+
+$$
+\int_0^1u'(x)v'(x)dx = \int_0^1f(x)v(x),  \forall v \in H^1_0(0,1)
+$$
+
+**Problème au moindre carré**
+
+Soit $A \in \mathcal{M}_{n,m}(\mathbb R)$ et $b \in \mathbb{R}^n$. On peut voir la matrice $A$ comme un data-frame de $n$ observations pour $m$ features chacune. On souhaite résoudre le problème suivant :
+
+$$
+\argmin_{x \in \mathbb{R}^n} \|Ax - b\|
+$$
+
+Selon le rang et la forme de la matrice $A$, on va avoir plus ou moins de solutions.
