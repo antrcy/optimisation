@@ -174,7 +174,7 @@ $$
 Soit $A \in \mathcal{M}_{m,n}(\mathbb R)$ et $b \in \mathbb{R}^m$. On peut voir la matrice $A$ comme un data-frame de $n$ observations pour $m$ features chacune. On souhaite résoudre le problème suivant :
 
 $$
-\argmin_{x \in \mathbb{R}^n} \|Ax - b\|
+\text{arg} \min_{x \in \mathbb{R}^n} \|Ax - b\|
 $$
 
 Selon le rang et la forme de la matrice $A$, on va avoir plus ou moins de solutions. On commence par étudier l'existence d'une solution à ce problème.
