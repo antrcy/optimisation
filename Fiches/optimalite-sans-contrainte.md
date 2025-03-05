@@ -18,7 +18,7 @@ $$
 
 Si $f$ est convexe $\bar x$ est un minimum global.
 
-On appelle l'équation l'inégalité d'Euler. C'est un résultat extrêmement puissant, surtout sachant qu'on est sur un espace de Hilbert. Intuitivement, l'inégalité exprime le fait que $f$ est croissante dans toutes les directions permises par $K$.
+On appelle l'équation l'inégalité d'Euler. C'est un résultat extrêmement puissant, surtout sachant qu'on est sur un espace de Hilbert. Intuitivement, l'inégalité exprime le fait que $f$ est croissante dans toutes les directions permises par $K$. C'est notamment intéressant si on s'intéresse à des minimas au bord d'un fermé par exemple.
 
 La démonstration de ce résultat repose essentiellement sur le fait que $K$ est convexe. On choisit alors un voisinage de $\bar x$ dans $K$, par exemple une boule telle qu'intersectée avec $K$ donne un voisinage sur lequel $\bar x$ est minimiseur local.
 
@@ -87,7 +87,7 @@ $A$ est définie positive donc $f$ est strictement convexe. En particulier, si $
 
 _Cas 2 - $A$ est semi-définie positive_ :
 
-$f$ est convexe, car sa Hessienne est semi-définie positive (on a d'ailleurs la réciproque). Ainsi, $\bar x$ est minimum $\iff$ $\nabla_{\bar x}f = 0$. Ici cependant, l'existence et l'unicité de la solution du système $Ax = b$ ne peut pas être établie. Si $b \in \text{Im}(A)$, alors le système admet une solution $x_0$. Or puisque $\text{Ker}(A) \neq \{0\}$, il existe $v \neq 0$ tel que $Av = 0$, donc $\forall \lambda \in \mathbb{R}$, $x_0 + \lambda v$ est une solution. La fonction est donc minimisée sur un espace affine, donc convexe, elle est donc constante sur cet espace. Enfin, si $b \notin \text{Im}(A)$, l'équation d'Euler n'admet aucune solution. On rappelle que $\text{Im}(A) = \text{Ker}(A^t)^{\perp}$. Soit $v \neq 0$ tel que $Av = 0$. Alors, $v$ ne peut pas être orthogonal à $b$, puisque cela signifierait que $b \in \text{Im}(A)$. Ainsi, quitte à prendre un vecteur colinéaire à $v$, on a : 
+$f$ est convexe, car sa Hessienne est semi-définie positive (on a d'ailleurs la réciproque). Ainsi, $\bar x$ est minimum $\iff$ $\nabla_{\bar x}f = 0$. Ici cependant, l'existence et l'unicité de la solution du système $Ax = b$ ne peut pas être établie. Si $b \in \text{Im}(A)$, alors le système admet une solution $x_0$. Or puisque $\text{Ker}(A) \neq \{0\}$, il existe $v \neq 0$ tel que $Av = 0$, donc $\forall \lambda \in \mathbb{R}$, $x_0 + \lambda v$ est une solution. La fonction est donc minimisée sur un espace affine, donc convexe, elle est donc constante sur cet espace. Enfin, si $b \notin \text{Im}(A)$, l'équation d'Euler n'admet aucune solution. On rappelle que $\text{Im}(A) = \text{Ker}(A^t)^{\perp}$. Soit $v \neq 0$ tel que $Av = 0$. Alors, $v$ ne peut pas être orthogonal à $b$, puisque cela signifierait que $b \in \text{Im}(A)$ : un sous espace vectoriel et son orthogonal sont en somme directe. Ainsi, quitte à prendre un vecteur colinéaire à $v$, on a : 
 
 $$
 f(v) = -\langle b, v \rangle + c < 0
@@ -115,7 +115,7 @@ $$
 
 **Minimisation d'une fonctionnelle**
 
-On rappelle le théorème de Lax-Milgram. Soit $a : V \times V \to \mathbb R$ bilinéaire, continue et coercive, avec $H$ de Hilbert. Soit également $l : V \to \mathbb{R}$ une forme linéaire continue. Soit $f$ telle que :
+On rappelle le théorème de Lax-Milgram. Soit $a : V \times V \to \mathbb R$ bilinéaire, continue et coercive, avec $V$ de Hilbert. Soit également $l : V \to \mathbb{R}$ une forme linéaire continue. Soit $f$ telle que :
 
 $$
 f(u) = \frac{1}{2} a(u, u) - l(u)
@@ -132,7 +132,7 @@ $a$ étant une forme bilinéaire coercive, elle est $\alpha$-convexe donc convex
 Mettons en pratique sur un exemple :
 
 $$
-f(u) = \frac{1}{2} \int_0^1u'(x)^2dx - \int_0^1f(x)u(x)dx
+J(u) = \frac{1}{2} \int_0^1u'(x)^2dx - \int_0^1f(x)u(x)dx
 $$
 
 avec $f \in L^2(0, 1)$ et $u \in H^1_0(0,1)$.
@@ -158,7 +158,7 @@ $$
 $a$ est linéaire, et coercive :
 
 $$
-\|u\|_{L^1} \leq C \|u'\|_{L^2} = C |a(u,u)|
+\|u\|_{L^2} \leq C \|u'\|_{L^2} = C |a(u,u)|
 $$
 
 par l'inégalité de Poincaré sur toutes les fonctions $u \in H^1_0(0,1)$.
@@ -174,7 +174,7 @@ $$
 Soit $A \in \mathcal{M}_{m,n}(\mathbb R)$ et $b \in \mathbb{R}^m$. On peut voir la matrice $A$ comme un data-frame de $n$ observations pour $m$ features chacune. On souhaite résoudre le problème suivant :
 
 $$
-\text{arg} \min_{x \in \mathbb{R}^n} \|Ax - b\|
+\text{arg} \min_{x \in \mathbb{R}^n} \|Ax - b\|^2
 $$
 
 Selon le rang et la forme de la matrice $A$, on va avoir plus ou moins de solutions. On commence par étudier l'existence d'une solution à ce problème.
