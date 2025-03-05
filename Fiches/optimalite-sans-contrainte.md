@@ -87,7 +87,7 @@ $A$ est définie positive donc $f$ est strictement convexe. En particulier, si $
 
 _Cas 2 - $A$ est semi-définie positive_ :
 
-$f$ est convexe, car sa Hessienne est semi-définie positive (on a d'ailleurs la réciproque). Ainsi, $\bar x$ est minimum $\iff$ $\nabla_{\bar x}f = 0$. Ici cependant, l'existence et l'unicité de la solution du système $Ax = b$ ne peut pas être établie. Si $b \in \text{Im}(A)$, alors le système admet une solution $x_0$. Or puisque $\text{Ker}(A) \neq \empty$, il existe $v \neq 0$ tel que $Av = 0$, donc $\forall \lambda \in \mathbb{R}$, $x_0 + \lambda v$ est une solution. La fonction est donc minimisée sur un espace affine, donc convexe, elle est donc constante sur cet espace. Enfin, si $b \notin \text{Im}(A)$, l'équation d'Euler n'admet aucune solution. On rappelle que $\text{Im}(A) = \text{Ker}(A^t)^{\perp}$. Soit $v \neq 0$ tel que $Av = 0$. Alors, $v$ ne peut pas être orthogonal à $b$, puisque cela signifierait que $b \in \text{Im}(A)$. Ainsi, quitte à prendre un vecteur colinéaire à $v$, on a : 
+$f$ est convexe, car sa Hessienne est semi-définie positive (on a d'ailleurs la réciproque). Ainsi, $\bar x$ est minimum $\iff$ $\nabla_{\bar x}f = 0$. Ici cependant, l'existence et l'unicité de la solution du système $Ax = b$ ne peut pas être établie. Si $b \in \text{Im}(A)$, alors le système admet une solution $x_0$. Or puisque $\text{Ker}(A) \neq \{0\}$, il existe $v \neq 0$ tel que $Av = 0$, donc $\forall \lambda \in \mathbb{R}$, $x_0 + \lambda v$ est une solution. La fonction est donc minimisée sur un espace affine, donc convexe, elle est donc constante sur cet espace. Enfin, si $b \notin \text{Im}(A)$, l'équation d'Euler n'admet aucune solution. On rappelle que $\text{Im}(A) = \text{Ker}(A^t)^{\perp}$. Soit $v \neq 0$ tel que $Av = 0$. Alors, $v$ ne peut pas être orthogonal à $b$, puisque cela signifierait que $b \in \text{Im}(A)$. Ainsi, quitte à prendre un vecteur colinéaire à $v$, on a : 
 
 $$
 f(v) = -\langle b, v \rangle + c < 0
@@ -171,10 +171,65 @@ $$
 
 **Problème au moindre carré**
 
-Soit $A \in \mathcal{M}_{n,m}(\mathbb R)$ et $b \in \mathbb{R}^n$. On peut voir la matrice $A$ comme un data-frame de $n$ observations pour $m$ features chacune. On souhaite résoudre le problème suivant :
+Soit $A \in \mathcal{M}_{m,n}(\mathbb R)$ et $b \in \mathbb{R}^m$. On peut voir la matrice $A$ comme un data-frame de $n$ observations pour $m$ features chacune. On souhaite résoudre le problème suivant :
 
 $$
 \argmin_{x \in \mathbb{R}^n} \|Ax - b\|
 $$
 
-Selon le rang et la forme de la matrice $A$, on va avoir plus ou moins de solutions.
+Selon le rang et la forme de la matrice $A$, on va avoir plus ou moins de solutions. On commence par étudier l'existence d'une solution à ce problème.
+
+Une solution $\bar x$ peut être vue comme le projeté de $b$ sur $\text{Im}(A)$. On peut alors poser $g(y) = \|y - b\|^2$ définie sur $\text{Im}(A)$, continue et coercive sur un fermé. Elle admet donc un minimiseur $y_0 \in \text{Im}(A)$, et donc il existe $x_0 \in \mathbb{R}^n$ tel que $Ax_0 = y$ solution.
+
+On montre également que :
+
+$$
+\langle \nabla_x^2f(h), h \rangle = 2\|Ah\|^2 \geq 0
+$$ 
+
+Donc $J$ est convexe. Puisque $J$ est convexe sur un ouvert, ses minimum locaux sont caractérisés par l'équation d'Euler :
+
+$$
+\bar x \text{ un minimum local de } J \iff A^t A \bar x = A^t b
+$$
+
+$A^tA$ est inversible si et seulement si le rang de $A$ est égal à $n$, c'est-à-dire que ses colonnes sont linéairement indépendantes. En effet, $A^tA \in \mathcal{M}_{n,n}$. Donc $A^tA$ est inversible si et seulement si $\text{Ker}(A^tA) = \{0\}$, c'est-à-dire $\text{Ker}(A) = \{0\}$ et $\text{Im}(A) \cap \text{Ker}(A^t) = \{0\}$. Or le dernier point est toujours vérifié, car les deux sous espaces sont orthogonaux. Finalement $\text{Ker}(A) = \{0\} \iff \dim(\text{Im}(A)) = n$ (_Théorème du rang_).
+
+On peut discuter de l'unicité et de la forme des solutions selon les dimensions du problème.
+
+_Cas 1_ :
+
+$$A = 
+\begin{pmatrix}
+  * & * & * & * & * & *\\
+  * & * & * & * & * & *\\
+  * & * & * & * & * & *
+\end{pmatrix}
+$$
+
+On a moins d'observations que de features. Il est impossible d'avoir un rang égal à $n$. On aura forcément une infinité de minimiseurs, sur tout un espace affine de solutions $x_0 + \text{Ker}(A)$. Dans le cas où $b \in \text{Im}(A)$, on aura même interpolation (overfitting), c'est-à-dire qu'un minimieur sera solution de $Ax = b$.
+
+_Cas 2_ :
+$$A = 
+\begin{pmatrix}
+  * & * & * \\
+  * & * & * \\
+  * & * & *
+\end{pmatrix}
+$$
+
+Il est possible que le rang soit égal à $n$, mais auquel cas le minimiseur (unique) interpollera encore les données. Si le rang est inférieur à $n$, il faut que $b$ soit dans l'image de $A$ pour qu'il y ait interpolation. Sinon, on aura encore un espace affine de solutions du problème de minimisation.
+
+_Cas 3_ :
+$$A = 
+\begin{pmatrix}
+  * & * & * \\
+  * & * & * \\
+  * & * & * \\
+  * & * & * \\
+  * & * & * \\
+  * & * & *
+\end{pmatrix}
+$$
+
+Même discours qu'avant. Il est encore possible d'obtenir des solutions interpolantes, mais ici le rang est plus atteignable en pratique.
