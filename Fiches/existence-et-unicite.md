@@ -125,6 +125,6 @@ C'est un des résultats les plus importants concernant l'optimisation en dimensi
 
 _Propriétés_ : Soit $J:K\in V \to \mathbb R$;
 
-1) Si $J$ est convexe, tout minimum local est minimum global. De plus, les minimiseurs forment un ensemble convexe.
+1) Si $J$ et $K$ est convexe, tout minimum local est minimum global. De plus, les minimiseurs forment un ensemble convexe.
 
 2) Si $J$ est strictement convexe, et que $K$ est convexe, alors il y a au plus un minimiseur, c'est-à-dire réduit à un singleton potentiellement vide.
