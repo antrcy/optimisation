@@ -92,7 +92,14 @@ _Propositions_ :
 
 Le premier point se démontre en utilisant une variante géométrique du théorème de Hahn-Banach. Le deuxième point se démontre en utilisant la caractérisation par les sous-ensembles de niveaux de $J$ des fonctions $\text{s.c.i}$.
 
-_Ex_ : L'application norme associée au produit scalaire sur $V$ est continue et convexe donc $\text{s.c.i}$ pour la topologie forte. Elle est donc $\text{s.c.i}$ pour la topologie faible. Cepedant, elle n'est pas continue pour la topologie faible. Un exemple classique est la fonction $\exp(2in\pi \frac{t}{T})$ qui converge vers $0$ pour la topologie faible mais dont la norme est constante évaluée à $1$.
+_Ex_ : L'application norme associée au produit scalaire de $V$ est continue et convexe donc $\text{s.c.i}$ pour la topologie forte. Elle n'est cependant pas continue pour la topologie faible. En effet, pour tout $f\in L^2(0, 1)$, le lemme de Riemann-Lebesgue nous permet d'affirmer que les coefficients de Fourier (toujours définis) de $f$ convergent vers $0$, c'est-à-dire : 
+
+$$
+\forall f \in L^2(0, 2\pi), \quad \int_0^{2\pi} \sin(nt) f(t) dt \to 0 
+$$
+
+or $\int_0^{2\pi} \sin(nt)^2dt = \int_0^{2\pi} \frac{1}{2} - \frac{\cos(2nt)}{2}dt = \frac{1}{2} - \frac{1}{2} [\frac{\sin(2nt)}{2n}]_0^{2\pi} = \frac{1}{2}$
+
 
 _Propriété_ : Si $x_n \to x$ pour la topologie forte, alors $x_n \to x$ pour la topologie faible.
 
@@ -128,3 +135,12 @@ _Propriétés_ : Soit $J:K\in V \to \mathbb R$;
 1) Si $J$ et $K$ est convexe, tout minimum local est minimum global. De plus, les minimiseurs forment un ensemble convexe.
 
 2) Si $J$ est strictement convexe, et que $K$ est convexe, alors il y a au plus un minimiseur, c'est-à-dire réduit à un singleton potentiellement vide.
+
+
+
+
+_Démo_ : Lemme de Riemann Lebesgue
+
+$$
+\int_a^b \exp(int) f(t) dt 
+$$

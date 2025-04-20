@@ -57,7 +57,7 @@ On dit que la hessienne de $f$ est positive.
 Dans le cas strictement convexe, les 3 premières équivalences tiennent toujours avec des inégalités strictes (pour $x \neq y$). Pour la dernière, on a :
 
 $$
-\langle \nabla_x ^2 f (h) , h \rangle > 0 \implies \text{ f est strictement convexe}
+\langle \nabla_x ^2 f (h) , h \rangle > 0 \implies f \text{ est strictement convexe}
 $$
 
 La réciproque est en général fausse.
@@ -127,7 +127,7 @@ $$
 
 Facile à montrer, si on utilise la propriété vue plus tôt.
 
-Si on suppose que $f$ est deux fois différentiable, on a l'éqauivalence supplémentaire :
+Si on suppose que $f$ est deux fois différentiable, on a l'équivalence supplémentaire :
 
 4) $\forall x \in K$ :
 $$

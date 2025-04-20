@@ -6,7 +6,7 @@ On va s'intéresser ici à des résultats d'unicité et d'existence de solution 
 
 La différentiabilité offre un cadre agréable pour étudier les extremas locaux et globaux, alors qu'avant on avait du mal à déterminer le comportement local des fonctions.
 
-**Inéquation d'Euler** 
+**Inéquation d'Euler**
 
 Soit $f : K \to \mathbb R$, avec $K \subset V$ un **convexe** inclus dans un espace de Hilbert et $f$ **différentiable** sur $K$. 
 
@@ -34,7 +34,7 @@ $$
 \bar x \text{ est un minimum local de } f \iff D_{\bar x} f = 0
 $$
 
-Par convexité, $\bar x$ est en plus un minimum global.
+Par convexité, $\bar x$ est en plus un minimum global. Attention, pour cela $\mathring K$ doit être convexe. Sinon déjà la démonstration serait différente, et aussi parce que l'on peut imaginer en dimension 1 des fonctions convexes sur un ouvert, différentiables sur cet ouvert, mais dont les minimum locaux ne font pas forcément globaux. En effet, la non convexité de l'ouvert permet d'imaginer des intervalles ouverts disjoints, sur lesquels $f$ pourrait être constante sur le premier, puis être une hyperbole centrée sur le second.  
 
 Remarque en passant : pour beaucoup d'ensembles, notamment ceux qui n'ont aucune "marge de manoeuvre" dans une dimension, l'intérieur de $K$ sera vide. Les boules imposent en quelque sorte un "mapping" complet de l'espace. (GROS ABUS !)
 
